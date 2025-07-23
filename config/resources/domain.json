@@ -1,7 +1,105 @@
 {
   "version": "0.1",
   "prefixes": {
+    "schema": "http://schema.org/",
+    "ext": "http://example.com/"
   },
   "resources": {
+    "players": {
+      "name": "player",
+      "class": "schema:Person",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "schema:givenName"
+        }
+      },
+      "relationships": {
+        "rounds": {
+          "predicate": "schema:competitor",
+          "target": "round",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://example.com/players/"
+    },
+    "rounds": {
+      "name": "round",
+      "class": "schema:SportsEvent",
+      "attributes": {
+        "time": {
+          "type": "datetime",
+          "predicate": "schema:startTime"
+        }
+      },
+      "relationships": {
+        "players": {
+          "predicate": "schema:competitor",
+          "target": "player",
+          "cardinality": "many"
+        },
+        "hands": {
+          "predicate": "schema:subEvent",
+          "target": "hands",
+          "cardinality": "many"
+        }
+      },
+      "new-resource-base": "http://example.com/rounds/"
+    },
+    "hands": {
+      "name": "hand",
+      "class": "schema:SportsEvent",
+      "attributes": {
+        "contract": {
+          "type": "string",
+          "predicate": "schema:description"
+        },
+        "index": {
+          "type": "integer",
+          "predicate": "ext:index"
+        }
+      },
+      "relationships": {
+        "activePlayers": {
+          "predicate": "schema:homeTeam",
+          "target": "player",
+          "cardinality": "many"
+        },
+        "dealer":{
+          "predicate": "schema:homeTeam",
+          "target": "player",
+          "cardinality": "one"
+        },
+        "round": {
+          "predicate": "schema:superEvent",
+          "target": "round",
+          "cardinality": "one"
+        },
+        "points": {
+          "predicate": "ext:gameScore",
+          "target": "point",
+          "cardinality": "many"
+        }
+      }
+    },
+    "points": {
+      "name": "point",
+      "class": "schema:Integer",
+      "attributes": {},
+      "relationships": {
+        "player": {
+          "predicate": "ext:winner",
+          "target": "player",
+          "cardinality": "one"
+        },
+        "hand": {
+          "predicate": "ext:gameScore",
+          "target": "hand",
+          "cardinality": "one",
+          "inverse": true
+        }
+      }
+    }
   }
 }

@@ -15,9 +15,9 @@
         }
       },
       "relationships": {
-        "rounds": {
+        "positions": {
           "predicate": "schema:competitor",
-          "target": "round",
+          "target": "position",
           "cardinality": "many",
           "inverse": true
         }
@@ -34,18 +34,42 @@
         }
       },
       "relationships": {
-        "players": {
-          "predicate": "schema:competitor",
-          "target": "player",
-          "cardinality": "many"
+        "positions": {
+          "predicate": "schema:event",
+          "target": "position",
+          "cardinality": "many",
+          "inverse": true
         },
         "hands": {
           "predicate": "schema:subEvent",
-          "target": "hands",
+          "target": "hand",
           "cardinality": "many"
         }
       },
       "new-resource-base": "http://example.com/rounds/"
+    },
+    "positions": {
+      "name": "position",
+      "class": "schema:Integer",
+      "attributes": {
+        "positionNo": {
+          "type": "integer",
+          "predicate": "ext:value"
+        }
+      },
+      "relationships": {
+        "player": {
+          "predicate": "schema:competitor",
+          "target": "player",
+          "cardinality": "one"
+        },
+        "round": {
+          "predicate": "schema:event",
+          "target": "round",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://example.com/positions/"
     },
     "hands": {
       "name": "hand",
@@ -67,7 +91,7 @@
           "cardinality": "many"
         },
         "dealer":{
-          "predicate": "schema:homeTeam",
+          "predicate": "schema:referee",
           "target": "player",
           "cardinality": "one"
         },
@@ -81,12 +105,18 @@
           "target": "point",
           "cardinality": "many"
         }
-      }
+      },
+      "new-resource-base": "http://example.com/hands/"
     },
     "points": {
       "name": "point",
       "class": "schema:Integer",
-      "attributes": {},
+      "attributes": {
+        "score": {
+          "type": "integer",
+          "predicate": "ext:value"
+        }
+      },
       "relationships": {
         "player": {
           "predicate": "ext:winner",
@@ -99,7 +129,8 @@
           "cardinality": "one",
           "inverse": true
         }
-      }
+      },
+      "new-resource-base": "http://example.com/points/"
     }
   }
 }

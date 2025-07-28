@@ -1,0 +1,25 @@
+@startuml
+set namespaceSeparator none
+class "hands"
+"hands" : contract
+"hands" : index
+"hands" --> "1" "players" : dealer > 
+"hands" --> "1" "rounds" : round > 
+"hands" --> "*" "players" : activePlayers > 
+"hands" --> "*" "points" : points > 
+class "positions"
+"positions" : positionno
+"positions" --> "1" "players" : player > 
+"positions" --> "1" "rounds" : round > 
+class "players"
+"players" : name
+"players" --> "*" "positions" : positions > 
+class "points"
+"points" : score
+"points" --> "1" "players" : player > 
+"points" --> "1" "hands" : hand > 
+class "rounds"
+"rounds" : time
+"rounds" --> "*" "positions" : positions > 
+"rounds" --> "*" "hands" : hands > 
+@enduml

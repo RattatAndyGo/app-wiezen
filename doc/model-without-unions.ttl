@@ -1,0 +1,102 @@
+@prefix cms: <http://mu.semte.ch/vocabulary/cms/>.
+@prefix ext: <http://example.com/>.
+@prefix schema: <http://schema.org/>.
+@prefix rm: <http://mu.semte.ch/vocabularies/logical-delete/>.
+@prefix typedLiterals: <http://mu.semte.ch/vocabularies/typed-literals/>.
+@prefix mu: <http://mu.semte.ch/vocabularies/core/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix app: <http://mu.semte.ch/app/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+
+<http://mu.semte.ch/ontology> rdf:type owl:Ontology.
+<http://mu.semte.ch/ontology> dc:title "Generated resource ontology". 
+<http://mu.semte.ch/ontology> dc:description "Generated resource ontology". 
+
+schema:SportsEvent rdf:type owl:Class;
+  rdfs:label "hand".
+schema:Integer rdf:type owl:Class;
+  rdfs:label "position".
+schema:Person rdf:type owl:Class;
+  rdfs:label "player".
+schema:Integer rdf:type owl:Class;
+  rdfs:label "point".
+schema:SportsEvent rdf:type owl:Class;
+  rdfs:label "round".
+
+schema:description rdf:type owl:DatatypeProperty;
+  rdfs:comment "Resources type is string.  Original predicate is schema:description.";
+  rdfs:label "contract";
+  rdfs:range rdfs:Literal;
+  rdfs:domain schema:SportsEvent.
+ext:index rdf:type owl:DatatypeProperty;
+  rdfs:comment "Resources type is integer.  Original predicate is ext:index.";
+  rdfs:label "index";
+  rdfs:range rdfs:Literal;
+  rdfs:domain schema:SportsEvent.
+ext:local_id_1 rdf:type owl:DatatypeProperty;
+  rdfs:comment "Resources type is integer.  Original predicate is ext:value.";
+  rdfs:label "score";
+  rdfs:range rdfs:Literal;
+  rdfs:domain schema:Integer.
+ext:local_id_2 rdf:type owl:DatatypeProperty;
+  rdfs:comment "Resources type is integer.  Original predicate is ext:value.";
+  rdfs:label "positionno";
+  rdfs:range rdfs:Literal;
+  rdfs:domain schema:Integer.
+schema:givenName rdf:type owl:DatatypeProperty;
+  rdfs:comment "Resources type is string.  Original predicate is schema:givenName.";
+  rdfs:label "name";
+  rdfs:range rdfs:Literal;
+  rdfs:domain schema:Person.
+schema:startTime rdf:type owl:DatatypeProperty;
+  rdfs:comment "Resources type is datetime.  Original predicate is schema:startTime.";
+  rdfs:label "time";
+  rdfs:range rdfs:Literal;
+  rdfs:domain schema:SportsEvent.
+
+
+schema:homeTeam rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "activePlayers";
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:Person.
+ext:gameScore rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "points";
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:Integer.
+schema:referee rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "dealer";
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:Person.
+schema:superEvent rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "round";
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:SportsEvent.
+schema:competitor rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "player";
+  rdfs:domain schema:Integer;
+  rdfs:range schema:Person.
+schema:event rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "round";
+  rdfs:domain schema:Integer;
+  rdfs:range schema:SportsEvent.
+ext:winner rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "player";
+  rdfs:domain schema:Integer;
+  rdfs:range schema:Person.
+schema:subEvent rdf:type owl:ObjectProperty;
+  rdfs:comment "";
+  rdfs:label "hands";
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:SportsEvent.
+
+
+

@@ -37,8 +37,7 @@
         "positions": {
           "predicate": "schema:event",
           "target": "position",
-          "cardinality": "many",
-          "inverse": true
+          "cardinality": "many"
         },
         "hands": {
           "predicate": "schema:subEvent",
@@ -52,7 +51,7 @@
       "name": "position",
       "class": "schema:Integer",
       "attributes": {
-        "positionNo": {
+        "index": {
           "type": "integer",
           "predicate": "ext:value"
         }
@@ -66,7 +65,8 @@
         "round": {
           "predicate": "schema:event",
           "target": "round",
-          "cardinality": "one"
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "new-resource-base": "http://example.com/positions/"
@@ -85,7 +85,7 @@
         }
       },
       "relationships": {
-        "activePlayers": {
+        "active-players": {
           "predicate": "schema:homeTeam",
           "target": "player",
           "cardinality": "many"

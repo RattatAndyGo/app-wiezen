@@ -21,6 +21,10 @@ defmodule Dispatcher do
   # Run `docker-compose restart dispatcher` after updating
   # this file.
 
+  match "/positions/*path", @json do
+    Proxy.forward conn, path, "http://resource/positions/"
+  end
+
   match "/players/*path", @json do
     Proxy.forward conn, path, "http://resource/players/"
   end

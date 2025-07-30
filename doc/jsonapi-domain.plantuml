@@ -5,10 +5,10 @@ class "hands"
 "hands" : index
 "hands" --> "1" "players" : dealer > 
 "hands" --> "1" "rounds" : round > 
-"hands" --> "*" "players" : activePlayers > 
+"hands" --> "*" "players" : active-players > 
 "hands" --> "*" "points" : points > 
 class "positions"
-"positions" : positionno
+"positions" : index
 "positions" --> "1" "players" : player > 
 "positions" --> "1" "rounds" : round > 
 class "players"
@@ -16,7 +16,7 @@ class "players"
 "players" --> "*" "positions" : positions > 
 class "points"
 "points" : score
-"points" --> "1" "players" : player > 
+"points" --> "1" "positions" : position > 
 "points" --> "1" "hands" : hand > 
 class "rounds"
 "rounds" : time

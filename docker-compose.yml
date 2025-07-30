@@ -70,3 +70,12 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+
+  wiezen:
+    image: semtech/mu-python-template:2.0.0-beta.1
+    ports:
+      - "8888:80"
+    environment:
+      MODE: "development"
+    volumes:
+      - "/home/rattatandygo/Documents/redpencil/projects/wiezen/wiezen-service/:/app"

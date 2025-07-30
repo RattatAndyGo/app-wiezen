@@ -53,8 +53,8 @@ schema:startTime rdf:type owl:DatatypeProperty;
 
 
 schema:homeTeam rdf:type owl:ObjectProperty;
-  rdfs:comment "Names are activePlayers.";
-  rdfs:label "activePlayers";
+  rdfs:comment "Names are active-players.";
+  rdfs:label "active-players";
   rdfs:domain schema:SportsEvent;
   rdfs:range schema:Person.
 ext:gameScore rdf:type owl:FunctionalProperty, owl:ObjectProperty;
@@ -77,16 +77,16 @@ schema:competitor rdf:type owl:InverseFunctionalProperty, owl:ObjectProperty;
   rdfs:label "positions";
   rdfs:domain schema:Integer;
   rdfs:range schema:Person.
-schema:event rdf:type owl:InverseFunctionalProperty, owl:ObjectProperty;
-  rdfs:comment "Names are - positions, round.";
+schema:event rdf:type owl:FunctionalProperty, owl:ObjectProperty;
+  rdfs:comment "Names are positions, - round.";
   rdfs:label "positions";
-  rdfs:domain schema:Integer;
-  rdfs:range schema:SportsEvent.
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:Integer.
 ext:winner rdf:type owl:InverseFunctionalProperty, owl:ObjectProperty;
-  rdfs:comment "Names are player.";
-  rdfs:label "player";
+  rdfs:comment "Names are position.";
+  rdfs:label "position";
   rdfs:domain schema:Integer;
-  rdfs:range schema:Person.
+  rdfs:range schema:Integer.
 schema:subEvent rdf:type owl:ObjectProperty;
   rdfs:comment "Names are hands.";
   rdfs:label "hands";

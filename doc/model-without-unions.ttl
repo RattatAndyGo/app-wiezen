@@ -42,7 +42,7 @@ ext:local_id_1 rdf:type owl:DatatypeProperty;
   rdfs:domain schema:Integer.
 ext:local_id_2 rdf:type owl:DatatypeProperty;
   rdfs:comment "Resources type is integer.  Original predicate is ext:value.";
-  rdfs:label "positionno";
+  rdfs:label "index";
   rdfs:range rdfs:Literal;
   rdfs:domain schema:Integer.
 schema:givenName rdf:type owl:DatatypeProperty;
@@ -59,7 +59,7 @@ schema:startTime rdf:type owl:DatatypeProperty;
 
 schema:homeTeam rdf:type owl:ObjectProperty;
   rdfs:comment "";
-  rdfs:label "activePlayers";
+  rdfs:label "active-players";
   rdfs:domain schema:SportsEvent;
   rdfs:range schema:Person.
 ext:gameScore rdf:type owl:ObjectProperty;
@@ -84,14 +84,14 @@ schema:competitor rdf:type owl:ObjectProperty;
   rdfs:range schema:Person.
 schema:event rdf:type owl:ObjectProperty;
   rdfs:comment "";
-  rdfs:label "round";
-  rdfs:domain schema:Integer;
-  rdfs:range schema:SportsEvent.
+  rdfs:label "positions";
+  rdfs:domain schema:SportsEvent;
+  rdfs:range schema:Integer.
 ext:winner rdf:type owl:ObjectProperty;
   rdfs:comment "";
-  rdfs:label "player";
+  rdfs:label "position";
   rdfs:domain schema:Integer;
-  rdfs:range schema:Person.
+  rdfs:range schema:Integer.
 schema:subEvent rdf:type owl:ObjectProperty;
   rdfs:comment "";
   rdfs:label "hands";

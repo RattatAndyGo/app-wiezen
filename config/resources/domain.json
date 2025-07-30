@@ -118,9 +118,9 @@
         }
       },
       "relationships": {
-        "player": {
+        "position": {
           "predicate": "ext:winner",
-          "target": "player",
+          "target": "position",
           "cardinality": "one"
         },
         "hand": {
